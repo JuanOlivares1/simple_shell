@@ -1,0 +1,16 @@
+.TH man 1 "07 Apr 2020" "1.0" "simple_shell man page"
+.SH NAME
+Simple shell
+.SH SYNOPSIS
+nuseradd [USERNAME]
+.SH DESCRIPTION
+nuseradd is high level shell program for adding users to LDAP server.  On Debian, administrators should usually use nuseradd.debian(8) instead.
+.SH OPTIONS
+The nuseradd does not take any options. However, you can supply username.
+.SH SEE ALSO
+useradd(8), passwd(5), nuseradd.debian(8)
+.SH BUGS
+No known bugs.
+.SH AUTHORS
+José Erney Giraldo Ortega <>\n
+Juan David Olivares Padilla <jdop2000@gmail.com>
