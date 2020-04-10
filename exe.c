@@ -23,7 +23,7 @@ void exe(char **string) /* execute and print to stdout */
 	child_pid = fork();
 
 	if (child_pid == 0)
-		if (execve(string[0], string, NULL) == -1)
+		if (execve(string[0], string, environ) == -1)
         		perror("Error:");
 
 	if (child_pid > 0)

@@ -12,6 +12,10 @@
 #include <sys/stat.h>
 
 /* prototypes */
+int _strcmp(char *s1, char *s2);
+char *str_concat(char *s1, char *s2);
+char *_strdup(char *str);
+extern char **environ;
 void selector(char *s);
 void assignValues (char **ptr, char *s, int cont);
 int st_contador (char *string);

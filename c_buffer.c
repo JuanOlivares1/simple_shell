@@ -8,7 +8,7 @@
  *
  * Return: n characters per word
  */
-void c_buffer(int contador, char *st) /*creation of malloc and send to exe*/
+void c_buffer(int contador, char *st, char *argb, int line) /*creation of malloc and send to exe*/
 {
 	char **space;
 	int i, j, ite = 0, letters = 0;
@@ -21,7 +21,7 @@ void c_buffer(int contador, char *st) /*creation of malloc and send to exe*/
 	{
 		return;
 	}
-	ptr1 = strdup(st);
+	ptr1 = _strdup(st);
 	token = strtok(st, delim);
 
 	for (i = 0; i < contador || token != NULL; i++) /*contador = 1*/
@@ -43,6 +43,6 @@ void c_buffer(int contador, char *st) /*creation of malloc and send to exe*/
 			space[i][j] = 0;
 		}
 	}
-	assignValues(space, ptr1, contador);
+	assignValues(space, ptr1, contador, argb, line);
 	free(ptr1);
 }

@@ -9,9 +9,10 @@
  * Return: always 0
  */
 
-int main(void) /* getline and send to selector */
+int main(__attribute__((unused)) int argc, char **argv) /* getline and send to selector */
 {
 	char *buffer;
+	int line = 0;
 	size_t bufsize = 32;
 
 	buffer = malloc(bufsize * sizeof(char));
@@ -22,7 +23,7 @@ int main(void) /* getline and send to selector */
 	printf("#cisfun$ ");
 	while(getline(&buffer,&bufsize,stdin) != -1)
 	{
-		selector(buffer);
+		selector(buffer, argv[0], line);
 		printf("#cisfun$ ");
 	}
 	return (0);
