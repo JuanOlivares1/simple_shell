@@ -44,7 +44,7 @@ int argsValidator(char **grind)
 					perror("Error:");
 			if (child_pid > 0)
 				wait(&status);
-			//freeList(head);
+			/*freeList(head);*/
 			return (0);
 		}
 		temp = temp->next;
@@ -55,6 +55,6 @@ int argsValidator(char **grind)
 		printf("%s\n", grind[0]);
 		return(0);
 	}
-	//freeList();
+	/*freeList();*/
 	return (-1);
 }

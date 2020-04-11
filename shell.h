@@ -11,6 +11,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+
 /* main prototypes */
 void cisfun (void) __attribute__ ((constructor));
 int argsCount(char *s, char *delim);
@@ -36,7 +37,7 @@ typedef struct paths
 paths *c_pathList(paths **head,char *path);
 paths *newNode(paths **head, const char *arg);
 paths *last_node(paths *head);
-//void freeList(path **head);
+/*void freeList(path **head);*/
 
 /* environment variables */
 extern char **environ;
