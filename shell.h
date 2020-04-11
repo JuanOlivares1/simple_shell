@@ -36,7 +36,7 @@ typedef struct paths
 paths *c_pathList(paths **head,char *path);
 paths *newNode(paths **head, const char *arg);
 paths *last_node(paths *head);
-//void freeList(path **head);
+void freeList(paths *head);
 
 /* environment variables */
 extern char **environ;
