@@ -11,11 +11,34 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-/* prototypes */
-void selector(char *s);
-void assignValues (char **ptr, char *s, int cont);
-int st_contador (char *string);
+/* main prototypes */
+void cisfun (void) __attribute__ ((constructor));
+int argsCount(char *s, char *delim);
+char **c_buffer(int nargs, char *s);
+void assignValues(char **grind, char *str, int nargs);
+char *_getenv(const char *name);
+int argsValidator(char **grind);
 void exe(char **string);
-void c_buffer (int count, char *st);
+
+/* string manipulation prototypes */
+int _strlen (char *s);
+int _strcmp(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
+
+/* structs */
+typedef struct paths
+{
+        char *miniPath;
+        struct paths *next;
+} paths;
+
+/* list manipulation prototypes */
+paths *c_pathList(paths **head,char *path);
+paths *newNode(paths **head, const char *arg);
+paths *last_node(paths *head);
+//void freeList(path **head);
+
+/* environment variables */
+extern char **environ;
 
 #endif /* SHELL_H */

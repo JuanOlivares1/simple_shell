@@ -1,48 +1,40 @@
 #include "shell.h"
 
 /**
- * c_buffer - malloc create
+ * c_buffer - allocates the memory where the args will be stored
+ * @s: full string from getline
+ * @nargs: number of args
  *
- * @st: getline
- * @contador: lines contador
- *
- * Return: n characters per word
+ * Return: pointer to memory allocated
  */
-void c_buffer(int contador, char *st) /*creation of malloc and send to exe*/
+char **c_buffer(int nargs, char *s)
 {
 	char **space;
-	int i, j, ite = 0, letters = 0;
-	char *token;
-	char *ptr1;
-	char delim[] = " ";
+	int i, j, arglen;
+	char *token = strdup(s), delim[] = " ";
+	char *temp = token;
 
-	space = malloc(sizeof(char*) * contador + 1);
+	space = malloc(sizeof(char *) * nargs + 1);
 	if (space == NULL)
-	{
-		return;
-	}
-	ptr1 = strdup(st);
-	token = strtok(st, delim);
+		return (NULL);
 
-	for (i = 0; i < contador || token != NULL; i++) /*contador = 1*/
+	token = strtok(token, delim);
+	for (i = 0; i < nargs || token != NULL; i++)
 	{
-		letters = st_contador(token);
-		token = strtok(NULL, delim);
-		space[i] = malloc(sizeof(char) * letters);
+		arglen = _strlen(token);
+		space[i] = malloc(sizeof(char) * arglen);
 		if (space[i] == NULL)
 		{
-			for (ite = 0; ite < contador; ite++)
-			{
-				free(space[ite]);
-			}
+			for (j = 0; j < i; j++)
+				free(space[j]);
 			free(space);
-			return;
+			return (NULL);
 		}
-		for (j = 0; j < letters; j++)
-	      	{
+		for (j = 0; j < arglen; j++)
 			space[i][j] = 0;
-		}
+
+		token = strtok(NULL, delim);
 	}
-	assignValues(space, ptr1, contador);
-	free(ptr1);
+	free(temp);
+	return (space);
 }
