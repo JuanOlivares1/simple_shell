@@ -1,5 +1,13 @@
 #include "shell.h"
 
+void myStartupFun(void) __attribute__ ((constructor));
+/**
+ * myStartupFun - Prints elements
+ */
+void myStartupFun(void)
+{
+printf("#cisfun$ \n");
+}
 /**
  * main - check
  *
@@ -20,7 +28,7 @@ int main(__attribute__((unused)) int argc, char **argv) /* getline and send to s
 	{
 		exit (1);
 	}
-	printf("#cisfun$ ");
+	
 	while(getline(&buffer,&bufsize,stdin) != -1)
 	{
 		selector(buffer, argv[0], line);
