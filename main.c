@@ -19,6 +19,7 @@ int main(void) /* getline */
 		exit(1);
 
 	path = _getenv("PATH");
+
 	printf("#cisfun$ ");
 	while(getline(&buffer,&bufsize,stdin) != -1)
 	{
@@ -26,9 +27,10 @@ int main(void) /* getline */
 		grind = c_buffer(nargs, buffer);
 		assignValues(grind, buffer);
 		argsValidator(grind, path);
+
 		for (i = 0; i < nargs; i++)
 			free(grind[i]);
-		free(grind);
+		free(grind); 
 		printf("#cisfun$ ");
 	}
 	free(buffer);

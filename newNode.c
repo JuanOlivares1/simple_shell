@@ -10,14 +10,12 @@ void newNode(paths **head, const char *arg)
         new = malloc(sizeof(paths));
         if (new == NULL)
                 return;
-
         new->miniPath = strdup(arg);
         if (new->miniPath == NULL)
         {
                 free(new);
                 return;
         }
-
         new->next = NULL;
 
         last = last_node(*head);
@@ -29,11 +27,10 @@ void newNode(paths **head, const char *arg)
 
 paths *last_node(paths *head)
 {
+
         if (head == NULL)
                 return (NULL);
-
         if (head->next == NULL)
                 return (head);
-
         return (last_node(head->next));
 }

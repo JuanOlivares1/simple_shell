@@ -6,7 +6,9 @@
  *
  * Return: 0 if found, -1 otherwise
  */
+
 int argsValidator(char **grind, char *path)
+
 {
 	pid_t child_pid;
 	int status;
@@ -25,10 +27,12 @@ int argsValidator(char **grind, char *path)
                         wait(&status);
                 return (0);
         }
+
 	//if (grind[0] != '')
 	//	return(0);
 	head = c_pathList(&temp, path);
 	temp = head;
+
 
 	while (temp != NULL)
 	{
@@ -45,7 +49,9 @@ int argsValidator(char **grind, char *path)
 			if (child_pid > 0)
 			{
 				wait(&status);
+
 			}
+
 			free(command);
 			freeList(head);
 			return (0);
@@ -60,5 +66,5 @@ int argsValidator(char **grind, char *path)
 		return(0);
 	}
 	freeList(head);
-	return (-1);
+	return (0);
 }

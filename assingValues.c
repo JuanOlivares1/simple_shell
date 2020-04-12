@@ -15,10 +15,12 @@ void assignValues(char **grind, char *str)
 	int i, j;
 	char delim[] = " \n";
 
+
 	token = strtok(str, delim);
 	for (i = 0; token != NULL; i++)
+
 	{
-		for (j = 0; token[j]; j++)
+		for (j = 0; token[j]; ++j)
 			grind[i][j] = token[j];
 		grind[i][j] = '\0';
 		token = strtok(NULL, delim);

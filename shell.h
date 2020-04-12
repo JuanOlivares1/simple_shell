@@ -11,6 +11,7 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+
 /* main prototypes */
 void cisfun (void) __attribute__ ((constructor));
 int argsCount(char *s, char *delim);
@@ -24,6 +25,7 @@ void exe(char **string);
 int _strlen (char *s);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
+char *_strdup(char *str);
 
 /* structs */
 typedef struct paths
