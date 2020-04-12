@@ -9,6 +9,7 @@
 char *_getenv(const char *name)
 {
 	int i;
+	
 
 	for (i = 0; environ[i]; i++)
 	{

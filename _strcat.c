@@ -27,3 +27,31 @@ char *_strcat(char *dest, char *src)
         }
         return (dest);
 }
+
+char *_strdup(char *str)
+{
+	int ite; /*iterator*/
+	char *vector;
+	int size = 0;
+
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+	for (ite = 0; str[ite]; ite++)
+	{
+		size++;
+	}
+	size += 1;
+	vector = malloc(size * sizeof(char));
+	if (vector == NULL)
+	{
+		return (NULL);
+	}
+	for (ite = 0; ite < size; ite++)
+	{
+		*(vector + ite) = *(str + ite);
+	}
+	*(vector + ite) = '\0';
+	return (vector);
+}

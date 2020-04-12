@@ -12,21 +12,21 @@ int main(void) /* getline */
 	char *buffer;
 	size_t bufsize = 320;
 	int nargs, i;
-
+	char *save;
 	buffer = malloc(bufsize * sizeof(char));
 	if (buffer == NULL)
 		exit(1);
-
+	save = _getenv("PATH");
 	printf("#cisfun$ ");
 	while(getline(&buffer,&bufsize,stdin) != -1)
 	{
 		nargs = argsCount(buffer, " ");
 		grind = c_buffer(nargs, buffer);
 		assignValues(grind, buffer, nargs);
-		argsValidator(grind);
+		argsValidator(grind, save);
 		for (i = 0; i < nargs; i++)
 			free(grind[i]);
-		free(grind);
+		free(grind); 
 		printf("#cisfun$ ");
 	}
 	free(buffer);
