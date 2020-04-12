@@ -28,9 +28,10 @@ void newNode(paths **head, const char *arg)
 paths *last_node(paths *head)
 {
 
-        if (head == NULL)
+        if (!head)
                 return (NULL);
         if (head->next == NULL)
                 return (head);
+
         return (last_node(head->next));
 }
