@@ -5,11 +5,12 @@
  * @src: string to add
  * @dest: final string
  *
- * Return: char *
+ * Return: new malloc with concatenated string
  */
 char *_strcat(char *dest, char *src)
 {
-        int i, j, k;
+        char *rtrn;
+	int i, j, k, l = 0;
 
         for (i = 0; dest[i] != '\0'; ++i)
                 ;
@@ -17,15 +18,31 @@ char *_strcat(char *dest, char *src)
         for (j = 0; src[j] != '\0'; ++j)
                 ;
 
-	dest[i] = '/';
-	i++;
+	k = i + j + 2;
 
-        for (k = 0; k <= j; k++)
-        {
-                dest[i] = src[k];
-                i++;
-        }
-        return (dest);
+	rtrn = malloc(sizeof(char) * k);
+	if (rtrn == NULL)
+		return (NULL);
+
+	for (i = 0; dest[i] != '\0'; ++i)
+	{
+		rtrn[l] = dest[i];
+		l++;
+	}
+
+	 rtrn[l] = '/';
+	 l++;
+
+	for (j = 0; src[j] != '\0'; ++j)
+	{
+		rtrn[l] = src[j];
+                l++;
+	}
+
+	rtrn[l] = '\0';
+
+        return (rtrn);
+
 }
 
 char *_strdup(char *str)

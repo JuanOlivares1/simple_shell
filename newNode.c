@@ -18,7 +18,6 @@ void newNode(paths **head, const char *arg)
         }
         new->next = NULL;
 
-
         last = last_node(*head);
         if (last == NULL)
                 *head = new;
