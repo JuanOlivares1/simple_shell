@@ -1,21 +1,21 @@
 #include "shell.h"
 
-paths *newNode(paths **head, const char *arg)
+void newNode(paths **head, const char *arg)
 {
         paths *new, *last;
 
         if (head == NULL)
-                return (NULL);
+                return;
 
         new = malloc(sizeof(paths));
         if (new == NULL)
-                return (NULL);
+                return;
 
         new->miniPath = strdup(arg);
         if (new->miniPath == NULL)
         {
                 free(new);
-                return (NULL);
+                return;
         }
 
         new->next = NULL;
@@ -25,8 +25,6 @@ paths *newNode(paths **head, const char *arg)
                 *head = new;
         else
                 last->next = new;
-
-        return (new);
 }
 
 paths *last_node(paths *head)

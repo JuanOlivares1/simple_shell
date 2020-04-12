@@ -7,6 +7,7 @@ paths *c_pathList(paths **head, char *path)
 
 	temp = token;
 	token = strtok(token, ":");
+
 	while (token != NULL)
 	{
 		newNode(head, token);

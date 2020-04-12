@@ -15,9 +15,9 @@
 void cisfun (void) __attribute__ ((constructor));
 int argsCount(char *s, char *delim);
 char **c_buffer(int nargs, char *s);
-void assignValues(char **grind, char *str, int nargs);
+void assignValues(char **grind, char *str);
 char *_getenv(const char *name);
-int argsValidator(char **grind);
+int argsValidator(char **grind, char *path);
 void exe(char **string);
 
 /* string manipulation prototypes */
@@ -34,7 +34,7 @@ typedef struct paths
 
 /* list manipulation prototypes */
 paths *c_pathList(paths **head,char *path);
-paths *newNode(paths **head, const char *arg);
+void newNode(paths **head, const char *arg);
 paths *last_node(paths *head);
 void freeList(paths *head);
 

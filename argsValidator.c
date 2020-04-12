@@ -6,7 +6,7 @@
  *
  * Return: 0 if found, -1 otherwise
  */
-int argsValidator(char **grind)
+int argsValidator(char **grind, char *path)
 {
 	pid_t child_pid;
 	int status;
@@ -27,8 +27,9 @@ int argsValidator(char **grind)
         }
 	//if (grind[0] != '')
 	//	return(0);
-	head = c_pathList(&temp, _getenv("PATH"));
+	head = c_pathList(&temp, path);
 	temp = head;
+
 	while (temp != NULL)
 	{
 		command = _strcat(temp->miniPath, grind[0]);
