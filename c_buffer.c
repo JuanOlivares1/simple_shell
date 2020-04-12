@@ -11,17 +11,18 @@ char **c_buffer(int nargs, char *s)
 {
 	char **space;
 	int i, j, arglen = 0;
-	char *token = strdup(s), delim[] = " ";
+	char *token = strdup(s), delim[] = " \n";
 	char *temp = token;
 
-	space = malloc(sizeof(char *) * nargs + 1);
+	space = malloc(sizeof(char *) * (nargs + 1));
 	if (space == NULL)
 		return (NULL);
 
 	token = strtok(token, delim);
-	for (i = 0; i < nargs || token != NULL; i++)
+	for (i = 0; token != NULL; i++)
 	{
 		arglen = _strlen(token);
+		arglen++;
 		space[i] = malloc(sizeof(char) * arglen);
 		if (space[i] == NULL)
 		{
@@ -30,9 +31,6 @@ char **c_buffer(int nargs, char *s)
 			free(space);
 			return (NULL);
 		}
-		for (j = 0; j < arglen; j++)
-			space[i][j] = 0;
-
 		token = strtok(NULL, delim);
 	}
 	free(temp);

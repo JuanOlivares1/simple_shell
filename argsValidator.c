@@ -31,6 +31,11 @@ int argsValidator(char **grind, char *save)
 	head = c_pathList(&temp, save);
 	temp = head;
 	
+	// while(temp != NULL)
+	// {
+	// 	printf("---------->%s\n", temp->miniPath);
+	// 	temp = temp->next;
+	// }
 	while (temp != NULL)
 	{
 		command = _strcat(temp->miniPath, grind[0]);
@@ -43,11 +48,11 @@ int argsValidator(char **grind, char *save)
 					perror("Error:");
 			if (child_pid > 0)
 				wait(&status);
-			
+			free(command);
 			freeList(head);
 			return (0);
 		}
-		
+		free(command);
 		temp = temp->next;
 	}
 	if (stat(grind[0], &stt) == -1)
@@ -56,5 +61,5 @@ int argsValidator(char **grind, char *save)
 		return(0);
 	}
 	freeList(head);
-	return (-1);
+	return (0);
 }

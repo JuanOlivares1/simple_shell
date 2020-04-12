@@ -16,7 +16,7 @@
 void cisfun (void) __attribute__ ((constructor));
 int argsCount(char *s, char *delim);
 char **c_buffer(int nargs, char *s);
-void assignValues(char **grind, char *str, int nargs);
+void assignValues(char **grind, char *str);
 char *_getenv(const char *name);
 int argsValidator(char **grind, char *save);
 void exe(char **string);

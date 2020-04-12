@@ -13,6 +13,7 @@ int main(void) /* getline */
 	size_t bufsize = 320;
 	int nargs, i;
 	char *save;
+
 	buffer = malloc(bufsize * sizeof(char));
 	if (buffer == NULL)
 		exit(1);
@@ -20,9 +21,9 @@ int main(void) /* getline */
 	printf("#cisfun$ ");
 	while(getline(&buffer,&bufsize,stdin) != -1)
 	{
-		nargs = argsCount(buffer, " ");
+		nargs = argsCount(buffer, " \n");
 		grind = c_buffer(nargs, buffer);
-		assignValues(grind, buffer, nargs);
+		assignValues(grind, buffer);
 		argsValidator(grind, save);
 		for (i = 0; i < nargs; i++)
 			free(grind[i]);
