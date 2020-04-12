@@ -37,15 +37,22 @@ int argsValidator(char **grind)
 			grind[0] = command;
 			child_pid = fork();
 			if (child_pid == 0)
+			{
 				if (execve(command, grind, environ) == -1)
 					perror("Error:");
+			}
 			if (child_pid > 0)
+			{
 				wait(&status);
+			}
+			free(command);
 			freeList(head);
 			return (0);
 		}
+		free(command);
 		temp = temp->next;
 	}
+
 	if (stat(grind[0], &stt) == -1)
 	{
 		printf("%s\n", grind[0]);
