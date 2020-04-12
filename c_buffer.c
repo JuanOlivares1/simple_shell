@@ -10,7 +10,9 @@
 char **c_buffer(int nargs, char *s)
 {
 	char **space;
-	int i, j, arglen = 0;
+
+	int i, j, arglen;
+
 	char *token = strdup(s), delim[] = " \n";
 	char *temp = token;
 

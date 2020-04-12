@@ -2,15 +2,20 @@
 
 paths *c_pathList(paths **head, char *path)
 {
-	char *tmp = strdup(path);
-	char *token;
 
-	token = strtok(tmp, ":");
+	char *token = strdup(path);
+	char *temp;
+
+	temp = token;
+	token = strtok(token, ":");
+
 	while (token != NULL)
 	{
 		newNode(head, token);
 		token = strtok(NULL, ":");
 	}
-	free(tmp);
+
+	free(temp);
+
 	return (*head);
 }

@@ -6,7 +6,9 @@
  *
  * Return: 0 if found, -1 otherwise
  */
-int argsValidator(char **grind, char *save)
+
+int argsValidator(char **grind, char *path)
+
 {
 	pid_t child_pid;
 	int status;
@@ -25,17 +27,13 @@ int argsValidator(char **grind, char *save)
                         wait(&status);
                 return (0);
         }
-	/*if (grind[0] != '')*/
-	/*	return(0);*/
-	
-	head = c_pathList(&temp, save);
+
+	//if (grind[0] != '')
+	//	return(0);
+	head = c_pathList(&temp, path);
 	temp = head;
-	
-	// while(temp != NULL)
-	// {
-	// 	printf("---------->%s\n", temp->miniPath);
-	// 	temp = temp->next;
-	// }
+
+
 	while (temp != NULL)
 	{
 		command = _strcat(temp->miniPath, grind[0]);
@@ -44,10 +42,16 @@ int argsValidator(char **grind, char *save)
 			grind[0] = command;
 			child_pid = fork();
 			if (child_pid == 0)
+			{
 				if (execve(command, grind, environ) == -1)
 					perror("Error:");
+			}
 			if (child_pid > 0)
+			{
 				wait(&status);
+
+			}
+
 			free(command);
 			freeList(head);
 			return (0);
@@ -55,6 +59,7 @@ int argsValidator(char **grind, char *save)
 		free(command);
 		temp = temp->next;
 	}
+
 	if (stat(grind[0], &stt) == -1)
 	{
 		printf("%s\n", grind[0]);

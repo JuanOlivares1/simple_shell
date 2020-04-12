@@ -5,7 +5,7 @@
  * @src: string to add
  * @dest: final string
  *
- * Return: char *
+ * Return: new malloc with concatenated string
  */
 char *_strcat(char *dest, char *src)
 {
@@ -42,6 +42,7 @@ char *_strcat(char *dest, char *src)
 	rtrn[l] = '\0';
 
         return (rtrn);
+
 }
 
 char *_strdup(char *str)
