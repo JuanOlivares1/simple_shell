@@ -11,21 +11,8 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-
-/* main prototypes */
-void cisfun(void) __attribute__ ((constructor));
-int argsCount(char *s, char *delim);
-char **c_buffer(int nargs, char *s);
-void assignValues(char **grind, char *str);
-char *_getenv(const char *name);
-int argsValidator(char **grind, char *path);
-void exe(char **string);
-
-/* string manipulation prototypes */
-int _strlen(char *s);
-int _strcmp(char *s1, char *s2);
-char *_strcat(char *dest, char *src);
-char *_strdup(char *str);
+/* environment variables */
+extern char **environ;
 
 /* structs */
 /**
@@ -41,13 +28,24 @@ typedef struct paths
 	struct paths *next;
 } paths;
 
+/* main prototypes */
+void cisfun(void) __attribute__ ((constructor));
+int argsCount(char *s, char *delim);
+char **c_buffer(int nargs, char *s);
+void assignValues(char **grind, char *str);
+char *_getenv(const char *name);
+int argsValidator(char **grind, char *path);
+
+/* string manipulation prototypes */
+int _strlen(char *s);
+int _strcmp(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
+char *_strdup(char *str);
+
 /* list manipulation prototypes */
 paths *c_pathList(paths **head, char *path);
 void newNode(paths **head, const char *arg);
 paths *last_node(paths *head);
 void freeList(paths *head);
-
-/* environment variables */
-extern char **environ;
 
 #endif /* SHELL_H */
