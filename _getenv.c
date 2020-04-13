@@ -9,10 +9,19 @@
 char *_getenv(const char *name)
 {
 	int i;
+	char *temp, *temp2;
 
 	for (i = 0; environ[i]; i++)
-		if (strtok(environ[i], "=") != NULL)
-			if (strcmp(environ[i], name) == 0)
-				return (strtok(NULL, "="));
+	{
+		temp = strdup(environ[i]);
+		if (strtok(temp, "=") != NULL)
+			if (strcmp(temp, name) == 0)
+			{
+				temp2 = strdup(strtok(NULL, "="));
+				free(temp);
+				return(temp2);
+			}
+		free(temp);
+	}
 	return (NULL);
 }

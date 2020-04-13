@@ -6,7 +6,7 @@
  * Return: always 0
  */
 
-int main(void) /* getline */
+int main(void)
 {
 	char **grind;
 	char *buffer;
@@ -20,10 +20,11 @@ int main(void) /* getline */
 
 	path = _getenv("PATH");
 
-	printf("#cisfun$ ");
+	if (isatty(0) == 1)
+		printf("#cisfun$ ");
 	while (getline(&buffer, &bufsize, stdin) != -1)
 	{
-		nargs = argsCount(buffer, " \n");
+		nargs = argsCount(buffer, " \t\n");
 		grind = c_buffer(nargs, buffer);
 		assignValues(grind, buffer);
 		argsValidator(grind, path);
@@ -32,8 +33,10 @@ int main(void) /* getline */
 			free(grind[i]);
 		}
 		free(grind);
-		printf("#cisfun$ ");
+		if (isatty(0) == 1)
+			printf("#cisfun$ ");
 	}
+	free(path);
 	free(buffer);
 	return (0);
 }

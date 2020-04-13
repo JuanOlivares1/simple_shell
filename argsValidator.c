@@ -7,9 +7,7 @@
  *
  * Return: 0 if found, -1 otherwise
  */
-
 int argsValidator(char **grind, char *path)
-
 {
 	pid_t child_pid;
 	int status;
