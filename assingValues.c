@@ -4,7 +4,6 @@
  * assignValues - assing values to grind (array of strings of args)
  * @grind: allocated memory
  * @str: full string from getline
- * @nargs: number of args
  *
  * Return: void
  */

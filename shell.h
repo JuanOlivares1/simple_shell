@@ -13,7 +13,7 @@
 
 
 /* main prototypes */
-void cisfun (void) __attribute__ ((constructor));
+void cisfun(void) __attribute__ ((constructor));
 int argsCount(char *s, char *delim);
 char **c_buffer(int nargs, char *s);
 void assignValues(char **grind, char *str);
@@ -22,20 +22,27 @@ int argsValidator(char **grind, char *path);
 void exe(char **string);
 
 /* string manipulation prototypes */
-int _strlen (char *s);
+int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
 
 /* structs */
+/**
+ * struct paths - singly linked list
+ * @miniPath: string - (malloc'ed string)
+ * @next: points to the next node
+ *
+ * Description: list of all paths from the system.
+ */
 typedef struct paths
 {
-        char *miniPath;
-        struct paths *next;
+	char *miniPath;
+	struct paths *next;
 } paths;
 
 /* list manipulation prototypes */
-paths *c_pathList(paths **head,char *path);
+paths *c_pathList(paths **head, char *path);
 void newNode(paths **head, const char *arg);
 paths *last_node(paths *head);
 void freeList(paths *head);

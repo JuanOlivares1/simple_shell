@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- *
- *
+ * freeList - frees all memory allocated ofr linked list
+ * @head: pointer to list's head
  *
  * Return: 0 if found, -1 otherwise
  */

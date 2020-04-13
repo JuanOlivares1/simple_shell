@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * arg_count - Counts the number of args from getline
+ * argsCount - Counts the number of args from getline
  * @s: full string of args separeted by delim
  * @delim: delimiter
  *

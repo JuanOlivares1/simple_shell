@@ -21,7 +21,7 @@ int main(void) /* getline */
 	path = _getenv("PATH");
 
 	printf("#cisfun$ ");
-	while(getline(&buffer,&bufsize,stdin) != -1)
+	while (getline(&buffer, &bufsize, stdin) != -1)
 	{
 		nargs = argsCount(buffer, " \n");
 		grind = c_buffer(nargs, buffer);
