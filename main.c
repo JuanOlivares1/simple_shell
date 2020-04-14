@@ -34,7 +34,7 @@ int main(__attribute__((unused)) int ac, char **av)
 		free(grind);
 		if (isatty(0) == 1)
 			printf("#cisfun$ ");
-		}
+	}
 	if (isatty(0) == 1)
 		printf("\n");
 	free(path);
