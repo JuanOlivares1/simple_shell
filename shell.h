@@ -34,18 +34,20 @@ int argsCount(char *s, char *delim);
 char **c_buffer(int nargs, char *s);
 void assignValues(char **grind, char *str);
 char *_getenv(const char *name);
-int argsValidator(char **grind, char *path);
+int argsValidator(char **grind, char *path, char *filename, int line);
 
 /* string manipulation prototypes */
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
-char *_strdup(char *str);
+char *_strdup(const char *str);
+void lineString(int n);
 
 /* list manipulation prototypes */
 paths *c_pathList(paths **head, char *path);
 void newNode(paths **head, const char *arg);
 paths *last_node(paths *head);
 void freeList(paths *head);
+int errManager(char *filename, char *grindvalue, int line);
 
 #endif /* SHELL_H */

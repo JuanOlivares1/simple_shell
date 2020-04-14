@@ -2,7 +2,7 @@
 
 paths *c_pathList(paths **head, char *path)
 {
-	char *token = strdup(path);
+	char *token = _strdup(path);
 	char *temp;
 
 	temp = token;
@@ -33,7 +33,7 @@ void newNode(paths **head, const char *arg)
 	new = malloc(sizeof(paths));
 	if (new == NULL)
 		return;
-	new->miniPath = strdup(arg);
+	new->miniPath = _strdup(arg);
 	if (new->miniPath == NULL)
 	{
 		free(new);

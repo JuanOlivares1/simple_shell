@@ -13,13 +13,14 @@ char *_getenv(const char *name)
 
 	for (i = 0; environ[i]; i++)
 	{
-		temp = strdup(environ[i]);
+		temp = _strdup(environ[i]);
+
 		if (strtok(temp, "=") != NULL)
 			if (strcmp(temp, name) == 0)
 			{
-				temp2 = strdup(strtok(NULL, "="));
+				temp2 = _strdup(strtok(NULL, "="));
 				free(temp);
-				return(temp2);
+				return (temp2);
 			}
 		free(temp);
 	}

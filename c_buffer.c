@@ -10,7 +10,7 @@
 int argsCount(char *s, char *delim)
 {
 	int arg_count = 0;
-	char *token = strdup(s);
+	char *token = _strdup(s);
 	char *temp = token;
 
 	token = strtok(token, delim);
@@ -61,6 +61,7 @@ char **c_buffer(int nargs, char *s)
 
 /**
  * assignValues - assing values to grind (array of strings of args)
+ *
  * @grind: allocated memory
  * @str: full string from getline
  *

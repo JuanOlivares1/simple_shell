@@ -1,6 +1,27 @@
 #include "shell.h"
 
 /**
+ * lineString - Concatenates 2 strings
+ *
+ * @n: int to add
+ *
+ * Return: new malloc with concatenated string
+ */
+void lineString(int n)
+{
+	char temp[2];
+
+	while (n / 10)
+	{
+		lineString(n / 10);
+		break;
+	}
+	temp[0] = ((n % 10) + '0');
+	temp[1] = '\0';
+	write(2, temp, 1);
+}
+
+/**
  * _strcat - Concatenates 2 strings
  * @src: string to add
  * @dest: final string
@@ -66,9 +87,9 @@ int _strcmp(char *s1, char *s2)
  *
  * Return: pointer to new mallocated string's copy
  */
-char *_strdup(char *str)
+char *_strdup(const char *str)
 {
-	int i, size;
+	int i, size = 0;
 	char *vector;
 
 	if (str == NULL)
@@ -80,9 +101,9 @@ char *_strdup(char *str)
 	vector = malloc(size * sizeof(char));
 	if (vector == NULL)
 		return (NULL);
-	for (i = 0; i < size; i++)
-		*(vector + i) = *(str + i);
-	*(vector + i) = '\0';
+	for (i = 0; i < (size - 1); i++)
+		vector[i] = str[i];
+	vector[i] = '\0';
 	return (vector);
 }
 
