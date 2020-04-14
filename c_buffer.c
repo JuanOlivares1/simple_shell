@@ -14,8 +14,6 @@ int argsCount(char *s, char *delim)
 	char *temp = token;
 
 	token = strtok(token, delim);
-	printf("%s", token);
-	exit(0);
 	while (token != NULL)
 	{
 		token = strtok(NULL, delim);
@@ -88,9 +86,9 @@ void assignValues(char **grind, char *str)
 }
 
 /**
- * assignValues - assing values to grind (array of strings of args)
+ * freeGrind - free grind (array of strings of args)
  * @grind: allocated memory
- * @str: full string from getline
+ * @nargs: number of arguments
  *
  * Return: void
  */
