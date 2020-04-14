@@ -61,7 +61,6 @@ char **c_buffer(int nargs, char *s)
 
 /**
  * assignValues - assing values to grind (array of strings of args)
- *
  * @grind: allocated memory
  * @str: full string from getline
  *
@@ -84,4 +83,20 @@ void assignValues(char **grind, char *str)
 	}
 	grind[i] = NULL;
 	free(temp);
+}
+
+/**
+ * assignValues - assing values to grind (array of strings of args)
+ * @grind: allocated memory
+ * @str: full string from getline
+ *
+ * Return: void
+ */
+void freeGrind(char **grind, int nargs)
+{
+	int i;
+
+	for (i = 0; i < nargs; i++)
+		free(grind[i]);
+	free(grind);
 }
