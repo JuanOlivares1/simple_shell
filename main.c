@@ -25,7 +25,7 @@ int main(__attribute__((unused)) int ac, char **av)
 	while (getline(&buffer, &bufsize, stdin) != -1)
 	{
 		line++;
-		nargs = argsCount(buffer, " \t\n");
+		nargs = argsCount(buffer, "\t\n ");
 		grind = c_buffer(nargs, buffer);
 		assignValues(grind, buffer);
 		status = argsValidator(grind, path, av[0], line);

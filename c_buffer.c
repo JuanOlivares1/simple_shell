@@ -36,7 +36,7 @@ char **c_buffer(int nargs, char *s)
 {
 	char **space;
 	int i, j, arglen;
-	char *token = strdup(s), delim[] = " \n";
+	char *token = strdup(s), delim[] = " \t\n";
 	char *temp = token;
 
 	space = malloc(sizeof(char *) * (nargs + 1));
@@ -74,7 +74,7 @@ void assignValues(char **grind, char *str)
 	char *token = strdup(str);
 	char *temp = token;
 	int i, j;
-	char delim[] = " \n";
+	char delim[] = " \t\n";
 
 	token = strtok(str, delim);
 	for (i = 0; token != NULL; i++)
