@@ -28,18 +28,6 @@ int main(__attribute__((unused)) int ac, char **av)
 		nargs = argsCount(buffer, " \t\n");
 		grind = c_buffer(nargs, buffer);
 		assignValues(grind, buffer);
-		if (grind[0] != '\0')
-		{
-		if ((_strcmp(grind[0], "exit") == 0))
-		{
-			for (i = 0; i < nargs; i++)
-				free(grind[i]);
-			free(grind);
-			free(path);
-			free(buffer);
-			return (status);
-			}
-		}
 		status = argsValidator(grind, path, av[0], line);
 		for (i = 0; i < nargs; i++)
 			free(grind[i]);
@@ -47,7 +35,8 @@ int main(__attribute__((unused)) int ac, char **av)
 		if (isatty(0) == 1)
 			printf("#cisfun$ ");
 		}
-	printf("\n");
+	if (isatty(0) == 1)
+		printf("\n");
 	free(path);
 	free(buffer);
 	return (status);	}
