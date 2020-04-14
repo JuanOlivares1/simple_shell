@@ -8,7 +8,6 @@
  *
  * Return: always 0
  */
-
 int main(__attribute__((unused)) int ac, char **av)
 {
 	char **grind;
@@ -40,6 +39,7 @@ int main(__attribute__((unused)) int ac, char **av)
 			printf("#cisfun$ ");
 		}
 	if (isatty(0) == 1 && flag == 0)
+	}
 		printf("\n");
 	free(path);
 	free(buffer);

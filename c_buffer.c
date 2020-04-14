@@ -14,6 +14,8 @@ int argsCount(char *s, char *delim)
 	char *temp = token;
 
 	token = strtok(token, delim);
+	printf("%s", token);
+	exit(0);
 	while (token != NULL)
 	{
 		token = strtok(NULL, delim);
