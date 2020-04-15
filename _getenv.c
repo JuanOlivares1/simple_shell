@@ -6,23 +6,40 @@
  *
  * Return: value of env-variable. NULL if couldn't find
  */
-char *_getenv(char *name)
+
+char *_getpath(void)
 {
-	int i;
-	char *temp, *temp2;
+	char buffer[1024];
+	char *path, *token;
+	char delim[] = {"\"="};
+	int fd, readLine, closeF;
 
-	for (i = 0; environ[i]; i++)
+	fd = open("/etc/environment", O_RDONLY);
+	if (fd == -1)
 	{
-		temp = _strdup(environ[i]);
-
-		if (strtok(temp, "=") != NULL)
-			if (_strcmp(temp, name) == 0)
-			{
-				temp2 = _strdup(strtok(NULL, "="));
-				free(temp);
-				return (temp2);
-			}
-		free(temp);
+		perror("Error:");
+		return (NULL);
 	}
-	return (NULL);
+	for (readLine = 1024; readLine == 1024; )
+	{
+		readLine = read(fd, buffer, 1024);
+		if (readLine == -1)
+		{
+			perror("Error: ");
+			return (NULL);
+		}
+	}
+	token = strtok(buffer, delim);
+	if (token != NULL)
+	{
+		token = strtok(NULL, delim);
+		path = strdup(token);
+	}
+	closeF = close(fd);
+	if (closeF == -1)
+	{
+		perror("Error: ");
+		return (NULL);
+	}
+	return (path);
 }
