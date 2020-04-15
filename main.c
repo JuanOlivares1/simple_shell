@@ -18,7 +18,7 @@ int main(__attribute__((unused)) int ac, char **av)
 	buffer = malloc(bufsize * sizeof(char));
 	if (buffer == NULL)
 		exit(1);
-	path = _getenv("PATH");
+	path = _getpath();
 	if (isatty(0) == 1)
 		write(1, "#cisfun$ ", 9);
 	while (getline(&buffer, &bufsize, stdin) != -1)
