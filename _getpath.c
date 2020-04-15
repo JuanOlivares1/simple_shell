@@ -50,7 +50,7 @@ char *_getpath(void)
  *
  * Return: value of env-variable. NULL if couldn't find
  */
-char *_getenv(const char *name)
+char *_getenv(char *name)
 {
 	int i;
 	char *temp, *temp2;
