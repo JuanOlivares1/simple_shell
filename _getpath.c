@@ -1,8 +1,7 @@
 #include "shell.h"
 
 /**
- * _getenv - finds the values of a env-variable
- * @name: name of variable to look for
+ * _getpath - finds the values of a env-variable
  *
  * Return: value of env-variable. NULL if couldn't find
  */
@@ -33,7 +32,7 @@ char *_getpath(void)
 	if (token != NULL)
 	{
 		token = strtok(NULL, delim);
-		path = strdup(token);
+		path = _strdup(token);
 	}
 	closeF = close(fd);
 	if (closeF == -1)
