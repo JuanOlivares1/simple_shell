@@ -34,6 +34,7 @@ int argsCount(char *s, char *delim);
 char **c_buffer(int nargs, char *s);
 void assignValues(char **grind, char *str);
 void freeGrind(char **grind, int nargs);
+char *_getenv(const char *name);
 char *_getpath(void);
 int argsValidator(char **grind, char *path, char *filename, int line);
 
