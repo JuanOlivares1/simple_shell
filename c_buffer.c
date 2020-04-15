@@ -14,8 +14,6 @@ int argsCount(char *s, char *delim)
 	char *temp = token;
 
 	token = strtok(token, delim);
-	printf("%s", token);
-	exit(0);
 	while (token != NULL)
 	{
 		token = strtok(NULL, delim);
@@ -63,7 +61,6 @@ char **c_buffer(int nargs, char *s)
 
 /**
  * assignValues - assing values to grind (array of strings of args)
- *
  * @grind: allocated memory
  * @str: full string from getline
  *
@@ -86,4 +83,20 @@ void assignValues(char **grind, char *str)
 	}
 	grind[i] = NULL;
 	free(temp);
+}
+
+/**
+ * freeGrind - free grind (array of strings of args)
+ * @grind: allocated memory
+ * @nargs: number of arguments
+ *
+ * Return: void
+ */
+void freeGrind(char **grind, int nargs)
+{
+	int i;
+
+	for (i = 0; i < nargs; i++)
+		free(grind[i]);
+	free(grind);
 }
