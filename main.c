@@ -21,7 +21,7 @@ int main(__attribute__((unused)) int ac, char **av)
 		exit(1);
 	path = _getenv("PATH");
 	if (isatty(0) == 1)
-		printf("#cisfun$ ");
+		write(1, "#cisfun$ ", 9);
 	while (getline(&buffer, &bufsize, stdin) != -1)
 	{
 		line++;
@@ -33,10 +33,10 @@ int main(__attribute__((unused)) int ac, char **av)
 			free(grind[i]);
 		free(grind);
 		if (isatty(0) == 1)
-			printf("#cisfun$ ");
+			write(1, "#cisfun$ ", 9);
 	}
 	if (isatty(0) == 1)
-		printf("\n");
+		write(1, "\n", 1);
 	free(path);
 	free(buffer);
 	return (status);	}
