@@ -1,5 +1,13 @@
 #include "shell.h"
 
+/**
+ * c_pathList - fill newnode
+ *
+ * @head: where it will be stored
+ * @path: path of the commands
+ *
+ * Return: head
+ */
 paths *c_pathList(paths **head, char *path)
 {
 	char *token = _strdup(path);
