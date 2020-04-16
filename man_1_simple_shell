@@ -2,11 +2,15 @@
 .SH NAME
 .B Simple shell
 .SH SYNOPSIS
-nuseradd [USERNAME]
+.B #include "shell.h"
+.I
+dash [[name_command] [argument] [argument ...]]
 .SH DESCRIPTION
-     The shell receives commands from the keyboard, and then interprets it, executing them.  
-     has the advantage that the interpretative language is common to both interactive and non-interactive
-The nuseradd does not take any options. However, you can supply username.
+	The shell receives commands from the keyboard, and then interprets it, executing them.  
+	has the advantage that the interpretative language is common to both interactive and non-interactive.
+.B commands
+	If the command was correct, the program will first evaluate if the first argument corresponds to a command
+	and then, It will start taking argument = value
 .SH SEE ALSO
 useradd(8), passwd(5), nuseradd.debian(8)
 .SH BUGS

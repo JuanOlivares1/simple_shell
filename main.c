@@ -20,11 +20,13 @@ int main(__attribute__((unused)) int ac, char **av)
 	if (isatty(0) == 1)
 		write(1, "#cisfun$ ", 9);
 	while (getline(&buffer, &bufsize, stdin) != -1)
-	{	path = _getenv("PATH");
+	{
+		path = _getenv("PATH");
 		if (path == NULL)
 		{
 			path = ".";
-			f = 1;	}
+			f = 1;
+		}
 		line++;
 		nargs = argsCount(buffer, " \t\n");
 		grind = c_buffer(nargs, buffer);
@@ -33,11 +35,9 @@ int main(__attribute__((unused)) int ac, char **av)
 			if (_strcmp(grind[0], "exit") == 0)
 			{	freeGrind(grind, nargs);
 				flag = 1;
-				break;	}
-		if (_strcmp(grind[0], "env") == 0)
-			printenv();
-		else
-			status = argsValidator(grind, path, av[0], line);
+				break;
+			}
+		status = argsValidator(grind, path, av[0], line);
 		freeGrind(grind, nargs);
 		if (f == 0)
 			free(path);
@@ -46,7 +46,6 @@ int main(__attribute__((unused)) int ac, char **av)
 	}
 	if (isatty(0) == 1 && flag == 0)
 		write(1, "\n", 1);
-	if (flag == 1 && f == 0)
-		free(path);
 	free(buffer);
-	return (status);	}
+	return (status);
+}
