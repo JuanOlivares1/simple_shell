@@ -17,16 +17,16 @@ int main(__attribute__((unused)) int ac, char **av)
 	buffer = malloc(bufsize * sizeof(char));
 	if (buffer == NULL)
 		exit(1);
-	path = _getenv("PATH");
-	if (path == NULL)
-	{
-		path = ".";
-		f = 1;
-	}
 	if (isatty(0) == 1)
 		write(1, "#cisfun$ ", 9);
 	while (getline(&buffer, &bufsize, stdin) != -1)
 	{
+		path = _getenv("PATH");
+		if (path == NULL)
+		{
+			path = ".";
+			f = 1;
+		}
 		line++;
 		nargs = argsCount(buffer, " \t\n");
 		grind = c_buffer(nargs, buffer);
@@ -39,13 +39,13 @@ int main(__attribute__((unused)) int ac, char **av)
 			}
 		status = argsValidator(grind, path, av[0], line);
 		freeGrind(grind, nargs);
+		if (f == 0)
+			free(path);
 		if (isatty(0) == 1)
 			write(1, "#cisfun$ ", 9);
 	}
 	if (isatty(0) == 1 && flag == 0)
 		write(1, "\n", 1);
-	if (f == 0)
-		free(path);
 	free(buffer);
 	return (status);
 }
