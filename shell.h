@@ -51,5 +51,7 @@ void newNode(paths **head, const char *arg);
 paths *last_node(paths *head);
 void freeList(paths *head);
 int errManager(char *filename, char *grindvalue, int line);
+int errManager2(char *filename, char *grindvalue, int line, int free,
+		paths **head);
 
 #endif /* SHELL_H */

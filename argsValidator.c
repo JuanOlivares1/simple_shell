@@ -23,7 +23,7 @@ int argsValidator(char **grind, char *path, char *filename, int line)
 	{child_pid = fork();
 		if (child_pid == 0)
 			if (execve(grind[0], grind, environ) == -1)
-				perror("Error:");
+				return (errManager2(filename, grind[0], line, 0, NULL));
 		if (child_pid > 0)
 		{wait(&status);
 			if (WIFEXITED(status))
@@ -37,7 +37,7 @@ int argsValidator(char **grind, char *path, char *filename, int line)
 		{child_pid = fork();
 			if (child_pid == 0)
 				if (execve(command, grind, environ) == -1)
-					perror("Error:");
+					return (errManager2(filename, grind[0], line, 1, &head));
 			if (child_pid > 0)
 			{free(command);
 				freeList(head);
