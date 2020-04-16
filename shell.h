@@ -36,6 +36,7 @@ void assignValues(char **grind, char *str);
 void freeGrind(char **grind, int nargs);
 char *_getenv(char *name);
 char *_getpath(void);
+void printenv(void);
 int argsValidator(char **grind, char *path, char *filename, int line);
 
 /* string manipulation prototypes */
