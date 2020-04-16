@@ -1,9 +1,7 @@
 #include "shell.h"
-#include "/usr/include/paths.h"
 
 /**
  * main - main function
- *
  * @av: argument
  * @ac: n argument
  *
@@ -19,12 +17,8 @@ int main(__attribute__((unused)) int ac, char **av)
 	buffer = malloc(bufsize * sizeof(char));
 	if (buffer == NULL)
 		exit(1);
-	path = _getenv("PATH");
-	if (path == NULL)
-	{
-		path = _PATH_STDPATH;
-		path = _strcat(path, ":/usr/local/sbin:/usr/local/bin/");
-	}
+	path = _strcat("/usr/local/sbin:/usr/local/bin:/usr/sbin:",
+		       "/usr/bin:/sbin:/bin:/usr/games:/usr/local/games");
 	if (isatty(0) == 1)
 		write(1, "#cisfun$ ", 9);
 	while (getline(&buffer, &bufsize, stdin) != -1)
