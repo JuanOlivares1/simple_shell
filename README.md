@@ -30,5 +30,5 @@ total 64
 -rw-rw-r-- 1 vagrant vagrant  1783 Apr 16 23:34 _str.c
 -rw-rw-rw- 1 vagrant vagrant    21 Apr 17 04:15 xscript
 ```
-Made by **Juan Olivares<jdop2000@gmail.com><https://github.com/JuanOlivares1>**
-    and **Jose Giraldo<><>**
+Made by **Juan Olivares\<<jdop2000@gmail.com>\>\<<https://github.com/JuanOlivares1>\>**
+    and **Jose Giraldo\<<exanymejose1@hotmail.com>\>\<<https://github.com/blsoko>\>**
