@@ -1,20 +1,47 @@
 .TH man 1 "07 Apr 2020" "1.0" "simple_shell man page"
 .SH NAME
 .B Simple shell
+
 .SH SYNOPSIS
 .B #include "shell.h"
 .I
 dash [[name_command] [argument] [argument ...]]
+
 .SH DESCRIPTION
-	The shell receives commands from the keyboard, and then interprets it, executing them.  
-	has the advantage that the interpretative language is common to both interactive and non-interactive.
+.TP
+The shell receives commands from the keyboard, and then interprets it, executing them.  
+has the advantage that the interpretative language is common to both interactive and non-interactive.
+.TP
 .B commands
-	If the command was correct, the program will first evaluate if the first argument corresponds to a command
-	and then, It will start taking argument = value
+If the command was correct, the program will first evaluate if the argument exists 
+and have the permissions to execute it and then, It will start taking the next arguments like (argument = value).
+.TP
+.B exit
+This command allows you to exit from the shell, also, you have CTRL + D command that you can use too.
+
+.SH RETURN VALUE
+This function will return 0 on success, otherwise will return the error status number. 
+
+.SH Examples
+ls -la
+.TP
+/bin/ls -la
+.TP
+cp file_1 file_2
+.TP
+env
+.TP
+pwd
+.TP
+exit
+
 .SH SEE ALSO
-useradd(8), passwd(5), nuseradd.debian(8)
+.TP
+csh(1)
+
 .SH BUGS
 No known bugs.
+
 .SH AUTHORS
 José Erney Giraldo Ortega <>\n
 Juan David Olivares Padilla <jdop2000@gmail.com>
