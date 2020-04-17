@@ -29,14 +29,15 @@ typedef struct paths
 } paths;
 
 /* main prototypes */
-void cisfun(void) __attribute__ ((constructor));
 int argsCount(char *s, char *delim);
 char **c_buffer(int nargs, char *s);
 void assignValues(char **grind, char *str);
 void freeGrind(char **grind, int nargs);
 char *_getenv(char *name);
-char *_getpath(void);
 int argsValidator(char **grind, char *path, char *filename, int line);
+int errManager(char *filename, char *grindvalue, int line);
+int errManager2(char *filename, char *grindvalue, int line, int free,
+                paths **head);
 
 /* string manipulation prototypes */
 int _strlen(char *s);
@@ -50,8 +51,5 @@ paths *c_pathList(paths **head, char *path);
 void newNode(paths **head, const char *arg);
 paths *last_node(paths *head);
 void freeList(paths *head);
-int errManager(char *filename, char *grindvalue, int line);
-int errManager2(char *filename, char *grindvalue, int line, int free,
-		paths **head);
 
 #endif /* SHELL_H */
