@@ -37,7 +37,7 @@ char *_getenv(char *name);
 int argsValidator(char **grind, char *path, char *filename, int line);
 int errManager(char *filename, char *grindvalue, int line);
 int errManager2(char *filename, char *grindvalue, int line, int free,
-                paths **head);
+		paths **head);
 
 /* string manipulation prototypes */
 int _strlen(char *s);
