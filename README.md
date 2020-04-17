@@ -14,7 +14,8 @@ that close the program and show enviroment variables respctively.
 
 # Example
 
-```#cisfun$
+```
+#cisfun$
 total 64
 -rw-rw-r-- 1 vagrant vagrant  1409 Apr 16 23:34 argsValidator.c
 -rw-rw-r-- 1 vagrant vagrant   346 Apr 16 23:34 AUTHORS
