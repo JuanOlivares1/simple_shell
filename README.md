@@ -14,7 +14,7 @@ that close the program and show enviroment variables respctively.
 
 # Example
 
-``#cisfun$ ls -l
+``#cisfun$ ``
 total 64
 -rw-rw-r-- 1 vagrant vagrant  1409 Apr 16 23:34 argsValidator.c
 -rw-rw-r-- 1 vagrant vagrant   346 Apr 16 23:34 AUTHORS
@@ -28,7 +28,7 @@ total 64
 -rw-rw-r-- 1 vagrant vagrant   430 Apr 17 04:56 README.md
 -rw-rw-r-- 1 vagrant vagrant  1347 Apr 17 00:02 shell.h
 -rw-rw-r-- 1 vagrant vagrant  1783 Apr 16 23:34 _str.c
--rw-rw-rw- 1 vagrant vagrant    21 Apr 17 04:15 xscript``
+-rw-rw-rw- 1 vagrant vagrant    21 Apr 17 04:15 xscript
 
 Made by **Juan Olivares<jdop2000@gmail.com><https://github.com/JuanOlivares1>**
     and **Jose Giraldo<><>**
