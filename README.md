@@ -1,18 +1,17 @@
-# simple_shell
+# Simple_shell
 
 Project from Holbeton School that consist on create a simple shell in C language
 that is able to excute basic system commands.
 
-After running the program will show the following prompt:
+After running the program it will show the following prompt:
 
-#cisfun$
+``#cisfun$``
 
-where is going to wait for the commands.
+where is going to wait for the user to type commands. The shell can handle 
+command's options, and the program has exit and env built-ins
+that close the program and show enviroment variables respectively.
 
-The shell can handle command's options and the program has exit and env built-ins
-that close the program and show enviroment variables respctively.
-
-# Example
+### Example
 
 ```
 #cisfun$
